@@ -22,7 +22,8 @@ var ongoingTouches = new Array();
 
 function handleStart(evt) {
     
-  log("pointerdown.");
+  // log("pointerdown.");
+  
   var el = document.getElementsByTagName("canvas")[0];
   var ctx = el.getContext("2d");
         
@@ -42,7 +43,7 @@ function handleMove(evt) {
   var color = colorForTouch(evt);
   var idx = ongoingTouchIndexById(evt.pointerId);
 
-  log("continuing touch: idx =  " + idx);
+  // log("continuing touch: idx =  " + idx);
   if (idx >= 0) {
     ctx.beginPath();
     log("ctx.moveTo(" + ongoingTouches[idx].pageX + ", " + ongoingTouches[idx].pageY + ");");
@@ -81,7 +82,7 @@ function handleEnd(evt) {
 } 
 
 function handleCancel(evt) {
-  log("pointercancel: id = " + evt.pointerId);
+  // log("pointercancel: id = " + evt.pointerId);
   var idx = ongoingTouchIndexById(evt.pointerId);
   ongoingTouches.splice(idx, 1);  // remove it; we're done
 } 
@@ -93,8 +94,8 @@ function colorForTouch(touch) {
   r = r.toString(16); // make it a hex digit
   g = g.toString(16); // make it a hex digit
   b = b.toString(16); // make it a hex digit
-  var color = "#" + r + g + b;
-  log("color for touch with identifier " + touch.pointerId + " = " + color);
+  // var color = "#" + r + g + b;
+  // log("color for touch with identifier " + touch.pointerId + " = " + color);
   return color;
 }
 
